@@ -2,7 +2,7 @@
 <h1 align="center">TokenShooter</h1>
 <p align="center"><b>The first-token shooter.</b><br>A small language model plays a first-person shooter, entirely in your browser, on your GPU.</p>
 <p align="center"><a href="#a-jev-like-model-in-your-browser">A <b>Jev-like</b> <i>System One</i> model</a>, in your browser: it decides without writing a word.</p>
-<p align="center"><a href="https://www.yv17labs.com/en/tokenshooter/"><b>Watch it play live →</b></a></p>
+<p align="center"><b>Playable demo:</b> <a href="https://www.yv17labs.com/en/tokenshooter/">https://www.yv17labs.com/en/tokenshooter/</a></p>
 
 <p align="center"><img src="assets/screenshot.webp" width="846" alt="TokenShooter mid-game: the robot's view of a maze corridor, the model's probabilities for each action, the text it perceives and the tactical map"></p>
 
