@@ -2,6 +2,7 @@
 <h1 align="center">TokenShooter</h1>
 <p align="center"><b>The first-token shooter.</b><br>A small language model plays a first-person shooter, entirely in your browser, on your GPU.</p>
 <p align="center"><a href="#a-jev-like-model-in-your-browser">A <b>Jev-like</b> <i>System One</i> model</a>, in your browser: it decides without writing a word.</p>
+<p align="center"><a href="https://www.yv17labs.com/en/tokenshooter/"><b>Watch it play live →</b></a></p>
 
 <p align="center"><img src="assets/screenshot.webp" width="846" alt="TokenShooter mid-game: the robot's view of a maze corridor, the model's probabilities for each action, the text it perceives and the tactical map"></p>
 
@@ -73,7 +74,9 @@ The page also accepts URL parameters, for example `http://localhost:8000/?pilot=
 npm run build
 ```
 
-This writes the site to `dist/`: an `index.html`, a favicon, an `assets/` folder and `third-party-licenses.md`, about 1.6 MB in all. That last file holds the licenses of the libraries and fonts bundled into the site: keep it with the site. Upload the content of `dist/` to any folder of a static host; the paths are relative, so it works outside the site root too. `npm run preview` serves `dist/` locally to check it first.
+This writes the site to `dist/`: an `index.html`, a favicon, the picture shown in link previews, an `assets/` folder and `third-party-licenses.md`, about 1.8 MB in all. That last file holds the licenses of the libraries and fonts bundled into the site: keep it with the site. Upload the content of `dist/` to any folder of a static host; the paths are relative, so it works outside the site root too. `npm run preview` serves `dist/` locally to check it first.
+
+The canonical and link-preview (Open Graph) addresses at the top of `index.html` point to the public demo on yv17labs.com: change them if you host your own copy.
 
 The site must be served over HTTPS, because browsers only enable WebGPU on secure pages (localhost is the exception). Each visitor's browser downloads the model from Hugging Face, and the ONNX Runtime WebAssembly engine from the jsDelivr CDN.
 

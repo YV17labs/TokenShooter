@@ -12,6 +12,16 @@ const dropUnusedWasm = {
   },
 };
 
+/* The picture that link previews show (Open Graph, X). It stays in assets/ with the README images,
+   and ships next to the page, whose meta tags point to it. */
+const socialPreview = {
+  name: "social-preview",
+  generateBundle() {
+    const source = readFileSync(new URL("./assets/social-preview.png", import.meta.url));
+    this.emitFile({ type: "asset", fileName: "social-preview.png", source });
+  },
+};
+
 /* Minifying drops the license headers of the bundled packages, and their licenses ask for them to
    travel with the code. This writes the license and notice files of every package that ends up in
    the page or in the worker to third-party-licenses.md. Vite's own `build.license` misses the
@@ -86,7 +96,7 @@ function bundledLicenses() {
 const licenses = bundledLicenses();
 
 export default defineConfig({
-  plugins: [dropUnusedWasm, licenses.page],
+  plugins: [dropUnusedWasm, socialPreview, licenses.page],
   // Relative asset URLs: the built site works from any folder of a website, not only its root.
   base: "./",
   // The browser caches the model per address: port 8000 is the one the demo has always used
