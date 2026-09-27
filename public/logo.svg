@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="TokenShooter">
+  <defs>
+    <linearGradient id="ts-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c2334"/>
+      <stop offset="1" stop-color="#07090e"/>
+    </linearGradient>
+    <radialGradient id="ts-glow" cx="256" cy="256" r="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb547" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#ffb547" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="ts-tile"><rect width="512" height="512" rx="112"/></clipPath>
+    <!-- Reticle drawn twice: once wide in the background colour to cut the corridor lines, once in amber -->
+    <g id="ts-reticle" fill="none" stroke-linecap="round">
+      <circle cx="256" cy="256" r="120"/>
+      <path d="M256 92v74M256 346v74M92 256h74M346 256h74"/>
+    </g>
+  </defs>
+  <style>
+    /* The caret blinks like a text cursor waiting for the next token */
+    .ts-caret { animation: ts-blink 1.1s step-end infinite; }
+    @keyframes ts-blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ts-caret { animation: none; } }
+  </style>
+
+  <rect width="512" height="512" rx="112" fill="url(#ts-bg)"/>
+
+  <!-- A one-cell corridor seen in first person: walls converging on the far end -->
+  <g clip-path="url(#ts-tile)" fill="none" stroke="#6fb7ff" stroke-linejoin="round">
+    <path d="M0 0 199 199M512 0 313 199M0 512 199 313M512 512 313 313" stroke-opacity=".32" stroke-width="5"/>
+    <rect x="96" y="96" width="320" height="320" stroke-opacity=".22" stroke-width="5"/>
+    <rect x="157" y="157" width="198" height="198" stroke-opacity=".28" stroke-width="5"/>
+    <rect x="199" y="199" width="114" height="114" fill="#07090e" fill-opacity=".7" stroke-opacity=".38" stroke-width="5"/>
+  </g>
+  <rect width="512" height="512" rx="112" fill="url(#ts-glow)"/>
+
+  <use href="#ts-reticle" stroke="#0b0e15" stroke-opacity=".85" stroke-width="34"/>
+  <use href="#ts-reticle" stroke="#ffb547" stroke-width="16"/>
+
+  <!-- The token: a text caret in the crosshair -->
+  <rect class="ts-caret" x="247" y="204" width="18" height="104" rx="5" fill="#ffb547"/>
+</svg>
