@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # One pull request a month for the npm packages, so an upgrade is tested as a whole.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
